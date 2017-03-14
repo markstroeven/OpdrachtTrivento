@@ -1,0 +1,18 @@
+<div id="login">
+<div class="row">
+  <div class="col-md-4 col-lg-4 col-xl-4"></div>
+  <div class="col-md-4 col-sm-12 col-xs-12 col-lg-4 col-xl-4">
+    <md-card>
+      <md-card-title>Log in om verder te gaan</md-card-title>
+      <md-input-container class="width-100">
+        <input type="text" placeholder="username" mdInput required [(ngModel)]="credentials.username"/>
+      </md-input-container>
+      <md-input-container class="width-100">
+        <input type="password" placeholder="Password" mdInput required [(ngModel)]="credentials.password"/>
+      </md-input-container>
+      <button type="button" md-raised-button (click)="doLogin()">Login</button>
+    </md-card>
+  </div>
+  <div class="col-md-4 col-lg-4 col-xl-4"></div>
+</div>
+</div>

@@ -1,0 +1,49 @@
+<div id="employeeComponent" style="margin: 10px; position: relative;">
+  <div class="row">
+    <div class="col-md-2 col-lg-2 col-xl-2"></div>
+    <div class="col-md-8 col-sm-12 col-xs-12 col-lg-8 col-xl-8">
+      <div class="row">
+        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 col-xl-6">
+          <md-input-container class="width-100">
+            <input mdInput type="text" placeholder="Naar wie zoek je ?" [(ngModel)]="queryText">
+          </md-input-container>
+        </div>
+        <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6 col-xl-6">
+          <md-select class="width-100" style="margin-top: 5px" [(ngModel)]="queryRole">
+            <md-option value="">Selecteer een functie</md-option>
+            <md-option *ngFor="let option of jobRoles" [value]="option">{{option}}</md-option>
+          </md-select>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-2 col-lg-2 col-xl-2"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-sm-2  col-xl-2"></div>
+    <div class="col-md-8 col-sm-12 col-xs-12 col-lg-8 col-xl-8">
+      <md-card>
+        <md-list>
+          <div class="width-100" *ngFor="let employee of employees | jobFilter:queryRole | nameFilter:queryText; let i = index">
+          <md-list-item *ngIf="i < maxRecords" class="animation">
+            <h4 md-line>{{employee.first_name}}</h4>
+            <h5 md-line>{{employee.last_name}}</h5>
+            <h6 md-line>{{employee.job_role}}</h6>
+            <span class="spacer"></span>
+            <button md-button [mdMenuTriggerFor]="menu">
+              <md-icon>menu</md-icon>
+            </button>
+            <md-menu #menu="mdMenu">
+              <button md-menu-item (click)="mutate(employee)">
+                <span>Pas aan</span>
+              </button>
+            </md-menu>
+            <md-divider></md-divider>
+          </md-list-item>
+          </div>
+        </md-list>
+        <button class="blue" md-raised-button class="width-100" type="button" (click)="loadMore()">Laad meer</button>
+      </md-card>
+    </div>
+    <div class="col-md-2 col-lg-2 col-xl-2"></div>
+  </div>
+</div>

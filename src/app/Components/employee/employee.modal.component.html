@@ -1,0 +1,29 @@
+<md-card class="full-screen-modal">
+  <md-card-title>Wijzig medewerker (in geheugen)</md-card-title>
+  <md-input-container class="width-100">
+    <input type="text" required placeholder="first name" mdInput name="firstName" [(ngModel)]="employeeObject.first_name"/>
+  </md-input-container>
+  <md-input-container  class="width-100">
+    <input type="text" required placeholder="last name" mdInput name="lastName" [(ngModel)]="employeeObject.last_name"/>
+  </md-input-container>
+  <md-input-container  class="width-100">
+    <input type="text" required placeholder="address" mdInput name="address" [(ngModel)]="employeeObject.address"/>
+  </md-input-container>
+  <md-input-container  class="width-100">
+    <input type="text" required placeholder="email" mdInput name="email" [(ngModel)]="employeeObject.email"/>
+  </md-input-container>
+  <md-input-container  class="width-100">
+    <input type="text" required placeholder="job role" mdInput name="jobRole" [(ngModel)]="employeeObject.job_role"/>
+  </md-input-container>
+  <md-card>
+    <md-radio-group *ngIf="employeeObject.gender == 'Male'" [(ngModel)]="employeeObject.gender">
+      <md-radio-button checked value="Male">Man</md-radio-button>
+      <md-radio-button value="Female">Vrouw</md-radio-button>
+    </md-radio-group>
+    <md-radio-group *ngIf="employeeObject.gender == 'Female'" [(ngModel)]="employeeObject.gender">
+      <md-radio-button value="Male">Man</md-radio-button>
+      <md-radio-button checked value="Female">Vrouw</md-radio-button>
+    </md-radio-group>
+  </md-card>
+  <button class="width-100" type="button" (click)="doEdit()" md-raised-button>Sla wijzigingen op</button>
+</md-card>

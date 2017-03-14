@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {StateService} from "./Components/state.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+
+  public showMenu : boolean = false;
+
+  public constructor(private router:Router){
+    router.events.subscribe((ev)=>{
+      if(ev.url === '/Login'){
+        this.showMenu = false;
+      }else{
+        this.showMenu = true;
+      }
+    });
+  }
+
 }

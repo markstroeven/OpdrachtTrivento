@@ -1,1 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/core/theming/prebuilt/deeppurple-amber.css';
+
+
+.menu-bar{
+  background-color: #05a3b6;
+}
+.spacer {
+  flex: 1 1 auto;
+}
+.width-100{
+  width: 100%;
+}
+.blue{
+  background-color: #05a3b6 !important;
+}
+@keyframes animation {
+  0% {
+    padding-left: 100px;
+  }
+  100% {
+    padding-left: 0px;
+  }
+}
+
+.animation {
+  animation: animation 1s;
+}
+
+app-employee{
+  position: relative !important;
+}
+
+@media only screen
+and (min-device-width: 0px)
+and (max-device-width: 800px){
+
+ md-dialog-container{
+   width:100% !important;
+   height: 90% !important;
+    min-width:  100% !important;
+    max-width:  100% !important;
+    min-height:  90% !important;
+    max-height:  90% !important;
+  }
+
+}
