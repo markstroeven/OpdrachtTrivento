@@ -13,7 +13,8 @@ export class AppComponent {
 
   public constructor(private router:Router){
     router.events.subscribe((ev)=>{
-      if(ev.url === '/Login'){
+      console.log(ev);
+      if(ev.url === '/Login' || ev.url === '/'){
         this.showMenu = false;
       }else{
         this.showMenu = true;
